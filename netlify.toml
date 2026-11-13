@@ -18,3 +18,9 @@
   to = "https://:splat"
   status = 301
   force = true
+# Keep the proxy host out of search results: Google showed ph.anolilab.com/ in
+# anolilab.com's results. Don't block it in robots.txt, or Google can't see this header.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
